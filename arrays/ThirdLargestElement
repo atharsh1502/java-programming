@@ -1,0 +1,30 @@
+public class ThirdLargestElement {
+    public static void main(String[] args) {
+        
+        int arr[] = {1,3,6,6,5,2};
+        int n= arr.length;
+        
+        int max = Integer.MIN_VALUE;
+        int sMax = Integer.MIN_VALUE;
+        int tMax = Integer.MIN_VALUE;
+        
+        for(int i=0; i<n; i++){
+            if(max<arr[i]){
+                sMax = max;
+                tMax = sMax;
+                max = arr[i];
+            }
+            else if(sMax<arr[i] && arr[i]!=max){
+                tMax = sMax;
+                sMax = arr[i];
+            }
+            else if(tMax<arr[i] && arr[i]!=max && arr[i]!=sMax){
+                tMax = arr[i];
+            }
+        }
+        
+        System.out.println(max);
+        System.out.println(sMax);
+        System.out.println(tMax);
+    }
+}
